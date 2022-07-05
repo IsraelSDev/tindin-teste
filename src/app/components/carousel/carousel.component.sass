@@ -2,20 +2,33 @@ img
   max-width: 1400px
   width: 100%
   margin: 40px auto
-  max-height: 650px
+  max-height: 600px
 .carousel-control-prev, .carousel-control-next
   opacity: 1
   font-size: 25px
   width: 35%
-  color: red
+  color: var(--color-red)
   .box-control
     align-self: center
     background-color: white
-    height: 50px
+    height: 40px
     width: 40px
-    border: 3px solid red
+    border: 3px solid var(--color-red)
+  .bi-chevron-left, .bi-chevron-right
+    vertical-align: unset
+    height: auto
 
 .carousel-caption
   bottom: 8rem
   h2
     font-size: 5rem
+
+.carousel-indicators
+  margin-bottom: 4rem
+.carousel-indicators [data-bs-target]
+  width: 15px
+  height: 15px
+  border-radius: 50%
+  opacity: 1
+.carousel-indicators .active
+  background-color: var(--color-red)
