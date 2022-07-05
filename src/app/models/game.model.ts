@@ -1,4 +1,4 @@
-export class Game {
+class Game {
   id: number = 0;
   title: string = "";
   description: string = "";
@@ -24,4 +24,10 @@ export class Game {
   createdAt: Date = new Date();
   updatedAt: Date = new Date();
   __v: number = 0;
+  total: number = 0;
+}
+
+export class Games {
+  games: Game[] = [];
+  totalSize: number = 0
 }
