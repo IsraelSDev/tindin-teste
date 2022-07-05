@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PARAMS: {
+    email: 'israelsoares007@outlook.com',
+    password: '123'
+  },
+
+
 };
 
 /*
