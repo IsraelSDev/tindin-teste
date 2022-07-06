@@ -1,7 +1,7 @@
 import { API_URL } from "../utils/api.url"
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Games } from "../models/game.model";
+import { Games, Game } from "../models/game.model";
 
 @Injectable()
 export class GamesService {
@@ -19,4 +19,11 @@ export class GamesService {
     const response = await this.http.get(url).toPromise();
     return response as Games;
   }
+
+  async getGameById(id: string): Promise<Game> {
+    const url = `${API_URL.URL_GAME_ID + id}`;
+    const response = await this.http.get(url).toPromise();
+    return response as Game;
+  }
+
 }
