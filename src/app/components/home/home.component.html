@@ -8,7 +8,7 @@
       <a [routerLink]="['/details', game._id]">
         <div class="box-image">
           <img
-            *ngIf="game.photos[0].url !== undefined; else defaultImage"
+            *ngIf="game.photos.length > 0; else defaultImage"
             [src]="game.photos[0].url"
             alt="Imagem do jogo"
           />
@@ -24,7 +24,7 @@
           {{
             game.rating
               ? game.rating.toFixed(1).replace(".", ",") + "/10"
-              : "0,0/10"
+              : "-/10"
           }}
         </h6>
       </a>

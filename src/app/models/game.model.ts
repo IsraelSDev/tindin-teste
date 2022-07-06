@@ -8,11 +8,7 @@ export class Game {
     url: "",
     _id: ""
   }];
-  videos = [] = [{
-    type: "",
-    url: "",
-    _id: ""
-  }];
+  videos = [] = [];
   _id: number = 0;
   genres: string[] = [""];
   platforms: string[] = [""];
