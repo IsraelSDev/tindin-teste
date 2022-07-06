@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.gamesService.getGames().then(games => {
-      console.log(this.listOfGames);
       this.listOfGames.push(games);
       this.listGames = this.listOfGames[0].games;
       console.log(this.listGames);
@@ -31,6 +30,7 @@ export class HomeComponent implements OnInit, OnChanges {
     });
   }
 
+  
   ngOnChanges(): void {
 
   }

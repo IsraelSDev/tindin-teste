@@ -13,6 +13,7 @@ export class Game {
     url: "",
     _id: ""
   }];
+  _id: number = 0;
   genres: string[] = [""];
   platforms: string[] = [""];
   tags: string[] = [""];

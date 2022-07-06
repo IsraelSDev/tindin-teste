@@ -13,4 +13,10 @@ export class GamesService {
     const response = await this.http.get(url).toPromise();
     return response as Games;
   }
+
+  async getGamesHighLight(): Promise<Games> {
+    const url = `${API_URL.URL_GAMES_HIGHLIGHT}`;
+    const response = await this.http.get(url).toPromise();
+    return response as Games;
+  }
 }
