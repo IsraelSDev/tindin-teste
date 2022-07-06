@@ -1,14 +1,14 @@
-class Game {
+export class Game {
   id: number = 0;
   title: string = "";
   description: string = "";
   resume: string = "";
-  photos: [{}] = [{
+  photos = [] = [{
     name: "",
     url: "",
     _id: ""
   }];
-  videos: [{}] = [{
+  videos = [] = [{
     type: "",
     url: "",
     _id: ""
@@ -29,5 +29,5 @@ class Game {
 
 export class Games {
   games: Game[] = [];
-  totalSize: number = 0
+  totalSize: number = 0;
 }

@@ -1,11 +1,23 @@
 <app-carousel></app-carousel>
 <div class="container-fluid">
-  <div class="row" *ngIf="gamesList !== undefined">
-    <div class="col-sm-3 d-flex justify-content-center">
-      <img [src]="" alt="" />
-      <h4>COMMODI CONSEQUATUR</h4>
-      <h4>$241.99</h4>
-      <h6>7,5/10</h6>
+  <div class="row" *ngIf="listGames.length > 0">
+    <div
+      class="col-sm-3 d-flex justify-content-center"
+      *ngFor="let game of listGames"
+    >
+      <img [src]="game.photos[0].url" alt="Imagem do jogo" />
+
+      <h4>{{ game.title ? game.title : "Sem título" }}</h4>
+      <h4>
+        {{ game.mediumPrice ? (game.mediumPrice | currency) : "Não revelado" }}
+      </h4>
+      <h6>
+        {{
+          game.rating.toFixed(1) + "/10"
+            ? game.rating.toFixed(1) + "/10"
+            : "0,0/10"
+        }}
+      </h6>
     </div>
   </div>
 </div>
