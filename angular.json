@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "tindin"
+  "cli": {
+    "analytics": "71fc7c70-9429-47b2-abad-e936b745c26d"
+  }
 }
