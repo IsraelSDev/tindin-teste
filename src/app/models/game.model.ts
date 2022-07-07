@@ -8,7 +8,11 @@ export class Game {
     url: "",
     _id: ""
   }];
-  videos = [] = [];
+  videos = [] = [{
+    name: "",
+    url: "",
+    _id: ""
+  }];
   _id: number = 0;
   genres: string[] = [""];
   platforms: string[] = [""];
@@ -18,8 +22,8 @@ export class Game {
   totalVotes: number = 0;
   mediumPrice: number = 0;
   releaseYear: number = 0;
-  createdAt: Date = new Date();
-  updatedAt: Date = new Date();
+  createdAt: string = "";
+  updatedAt: string = "";
   __v: number = 0;
   total: number = 0;
 }
@@ -27,4 +31,8 @@ export class Game {
 export class Games {
   games: Game[] = [];
   totalSize: number = 0;
+}
+
+export class GameApi {
+  game: Game = new Game() as Game;
 }

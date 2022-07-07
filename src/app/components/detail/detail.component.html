@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="gameDetail.game !== undefined">
   <div class="row">
     <div class="col-sm-12 d-flex justify-content-center home-div">
       <a routerLink="/home">
@@ -21,11 +21,136 @@
         </svg>
       </a>
       <span>|</span>
-      <p>Game Name</p>
+      <p>{{ gameDetail.game.title }}</p>
     </div>
     <div class="row">
-      <div class="col-sm-6">PART 1</div>
-      <div class="col-sm-6">PART 2</div>
+      <div class="col-sm-6">
+        <p-carousel
+          [value]="imagesAndVideos"
+          [numVisible]="1"
+          [numScroll]="1"
+          [responsiveOptions]="responsiveOptions"
+          [circular]="true"
+        >
+          <ng-template pTemplate="imagesAndVideos">
+            <img [src]="imagesAndVideos[0].url" />
+          </ng-template>
+        </p-carousel>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="note">
+              <h5>
+                {{
+                  gameDetail.game.rating.toFixed(1).replace(".", ",") + "/10"
+                }}
+              </h5>
+            </div>
+          </div>
+          <div class="col-sm-8 title">
+            <h4>{{ gameDetail.game.title }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <p>{{ gameDetail.game.description.substring(0, 90) + "..." }}</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <hr
+              style="
+                opacity: 1;
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+                height: 2px;
+              "
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 list-genres">
+            <ul>
+              <li>
+                <p>
+                  Genres: <span>{{ gameDetail.game.genres.join(", ") }}</span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Total votes:<span> {{ gameDetail.game.totalVotes }}</span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Platforms:
+                  <span> {{ gameDetail.game.platforms.join(", ") }}</span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Tags: <span>{{ gameDetail.game.tags.join(", ") }}</span>
+                </p>
+              </li>
+            </ul>
+            <hr
+              style="
+                opacity: 1;
+                width: 100%;
+                text-align: right;
+                margin-left: 0;
+                height: 2px;
+              "
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 vote-section">
+            <h4>
+              Medium Price:
+              <span class="price-span">{{
+                gameDetail.game.mediumPrice | currency
+              }}</span>
+            </h4>
+
+            <p>
+              <span class="release"
+                >Release date:
+                {{
+                  gameDetail.game.updatedAt
+                    .substring(0, 10)
+                    .replaceAll("-", "/")
+                }}</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 btn-vote">
+          <button>VOTE NOW</button>
+          <hr
+            class="line-vote-btn"
+            style="
+              opacity: 1;
+              width: 100%;
+              text-align: right;
+              margin-left: 0;
+              height: 2px;
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 d-flex justify-content-center description-title">
+      <h6>DESCRIPTION</h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 d-flex justify-content-center description-text">
+      <p>
+        {{ gameDetail.game.description }}
+      </p>
     </div>
   </div>
 </div>
