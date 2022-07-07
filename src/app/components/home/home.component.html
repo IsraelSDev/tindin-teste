@@ -40,5 +40,18 @@
 </ng-template>
 
 <ng-template #loged>
-  <h1>Usuário Logado</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 d-flex portal">
+        <div class="col-sm-7 search-box">
+          <h1>Games</h1>
+          <h6>Games manager portal</h6>
+        </div>
+        <div class="col-sm-5 search">
+          <input type="text" placeholder="Search from..." />
+          <button routerLink="/new-game">NEW GAME</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>

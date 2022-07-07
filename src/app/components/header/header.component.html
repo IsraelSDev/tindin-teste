@@ -7,14 +7,14 @@
       </a>
     </div>
     <div class="col-sm-4">
-      <div class="search">
+      <div *ngIf="!isLoged" class="search">
         <input type="text" placeholder="Search Game Here" /><button>
           SEARCH
         </button>
       </div>
     </div>
     <div class="col-sm-4">
-      <a routerLink="/login">
+      <a [routerLink]="['/' + router]">
         <div class="container justify-content-around">
           <svg
             xmlns="http://www.w3.org/2000/svg"

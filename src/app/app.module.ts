@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { LoginComponent } from './components/login/login.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailComponent } from './components/detail/detail.component';
     FooterComponent,
     CarouselComponent,
     LoginComponent,
-    DetailComponent
+    DetailComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,

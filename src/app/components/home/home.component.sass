@@ -46,3 +46,39 @@
 a
   text-decoration: none
   color: white
+
+.portal
+  margin: 40px 0
+  h6
+    opacity: 0.8
+
+.search
+  margin: 20px 0
+  display: flex
+  .search-box
+    align-self: center
+  input,button
+    height: 40px
+  input
+    width: 50%
+    margin: 0 20px
+    background-color: transparent
+    border: 3px solid red
+    outline: 0
+    padding: 15px 20px
+    &::placeholder
+      color: white
+      opacity: 0.8
+    &:focus
+      color: white
+  button
+    width: 40%
+    background-color: var(--color-red)
+    color: white
+    padding: 5px 20px
+    border: 0
+    text-align: center
+    &:hover
+      background-color: white
+      color: var(--color-red)
+      transition: 0.3s
