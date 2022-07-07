@@ -22,7 +22,137 @@
           </svg>
         </a>
         <span>|</span>
-        <p>New Game</p>
+        <p>New Game Name</p>
+      </div>
+      <div class="row cad-section">
+        <div class="col-sm-6">
+          <h1>Imagem Section</h1>
+        </div>
+        <div class="col-sm-6">
+          <div class="form">
+            <form>
+              <div class="form-group">
+                <div class="line1">
+                  <p>7,5/10</p>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter the game name"
+                  />
+                </div>
+                <div class="line2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter resume game here"
+                  />
+                  <hr />
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 list-input">
+                    <ul>
+                      <li>
+                        <div>
+                          <label for="line2">Genres: </label>
+                          <div class="field col-12 md:col-4">
+                            <p-multiSelect
+                              inputId="multiselect"
+                              [options]="genres"
+                              [filter]="true"
+                              optionLabel="name"
+                              class="ng-invalid ng-dirty"
+                              placeholder="Select platforms"
+                            ></p-multiSelect>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <label for="line2">Platforms: </label>
+                          <div class="field col-12 md:col-4">
+                            <p-multiSelect
+                              inputId="multiselect"
+                              [options]="plataforms"
+                              [filter]="true"
+                              optionLabel="name"
+                              class="ng-invalid ng-dirty"
+                              placeholder="Select platforms"
+                            ></p-multiSelect>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <label for="line2">Tags: </label>
+                          <div class="field col-12 md:col-4">
+                            <p-chips
+                              inputId="chips"
+                              class="ng-invalid ng-dirty"
+                              placeholder="Chips"
+                            ></p-chips>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <label for="line2">Medium price: </label>
+                          <div class="field col-12 md:col-4">
+                            <p-inputNumber
+                              mode="currency"
+                              currency="BRL"
+                              locale="pt-BR"
+                            ></p-inputNumber>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <label for="line2">Release Year: </label>
+                          <div class="field col-12 md:col-4">
+                            <p-inputMask
+                              inputId="inputmask"
+                              mask="9999"
+                              class="ng-invalid ng-dirty"
+                              placeholder="Enter release year"
+                            ></p-inputMask>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <label for="line2">Description: </label>
+                          <div class="field col-12 md:col-4">
+                            <textarea
+                              inputId="textarea"
+                              rows="3"
+                              cols="30"
+                              pInputTextarea
+                              class="ng-invalid ng-dirty"
+                              placeholder="Enter description game"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-6">
+        <button>CANCEL</button>
+        <button>SAVE GAME</button>
       </div>
     </div>
   </div>
