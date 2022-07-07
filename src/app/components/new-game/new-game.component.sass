@@ -14,6 +14,7 @@
 .list-input > ul >li > div
   display: flex
   justify-content: flex-end
+  width: 100%
 
 input, textarea
   background-color: transparent
@@ -32,7 +33,9 @@ input, textarea
     opacity: 0.7
 textarea
   padding: 10px
-  width: 400px
+  width: 100%
+  margin: 0
+  height: 150px
 .form-group
   ul
     list-style: none
@@ -52,3 +55,25 @@ textarea
     border-radius: 10px
     font-weight: bold
     margin: 0
+
+.btn-section
+  text-align: end
+
+  button
+    margin: 20px 40px
+    width: 200px
+    height: 50px
+    color: white
+    border: 0
+    font-weight: bold
+    transition: 0.3s
+  .btn-one
+    background-color: #3F403F
+    &:hover
+      background-color: #575757
+      color: white
+  .btn-two
+    background-color: var(--color-red)
+    &:hover
+      background-color: red
+      color: #ffffff

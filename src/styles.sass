@@ -35,7 +35,7 @@ html, body
 .p-multiselect-item, .p-inputtext, .p-chips-multiple-container  .p-component, .p-multiselect-label, .p-multiselect-items-wrapper, .p-multiselect-panel, .p-multiselect-items, .p-multiselect-item, .p-highligh
   background-color: #3F403F !important
   color: white !important
-  max-width: 400px !important
+  width: 100%
   span
     color: white !important
     max-width: 400px !important
@@ -43,10 +43,10 @@ html, body
 .p-multiselect .p-multiselect-trigger, .p-chips
   background: #414141d9 !important
   color: white !important
-  max-width: 400px !important
+  width: 100%
 
 .p-multiselect-panel .p-multiselect-header, .p-chips
-  max-width: 400px !important
+  width: 100%
   background-color: #3F403F !important
   color: white !important
   &::placeholder
@@ -54,7 +54,7 @@ html, body
     opacity: 0.7
 
 .p-multiselect.ng-dirty.ng-invalid > .p-multiselect
-  width: 400px !important
+  width: 100%
   border: 3px solid var(--color-red) !important
   color: white !important
   &::placeholder
@@ -62,35 +62,35 @@ html, body
     opacity: 0.7
 input
   border: 3px solid var(--color-red) !important
-  width: 400px
+  width: 100%
   &::placeholder
     color: white !important
     opacity: 0.7
 #chips
   border: 0 !important
   color: white !important
-  
+
   &::placeholder
     color: white !important
     opacity: 0.7
 .p-chips
   border: 3px solid var(--color-red) !important
   outline: 0
-  width: 400px
+  width: 100%
   &::placeholder
     color: white !important
     opacity: 0.7
 .p-multiselect
   border-color: #e24c4c !important
   border: 3px solid var(--color-red) !important
-  width: 400px
+  width: 100%
   &::placeholder
     color: white !important
     opacity: 0.7
-.ng-star-inserted
-  color: white !important
-  background-color: #707070 !important
-  
-  &::placeholder
-    color: white !important
-    opacity: 0.7
+.p-chips-token
+
+  background-color: #8e8e8e !important
+  color: white
+
+.p-inputnumber, .p-element, .p-inputwrapper
+  width: 100% !important
