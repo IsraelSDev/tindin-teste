@@ -9,7 +9,7 @@ export class NewGameComponent implements OnInit {
 
   public plataforms: any;
   public genres: any;
-
+  public responsiveOptions: any;
 
   constructor(
   ) {
@@ -56,6 +56,23 @@ export class NewGameComponent implements OnInit {
       { name: 'Dance', code: 16 },
       { name: 'Simulation', code: 17 },
     ]
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
 
   }
 
