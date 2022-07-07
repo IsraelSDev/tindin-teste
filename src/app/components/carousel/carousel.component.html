@@ -1,141 +1,48 @@
-<div class="container" *ngIf="listGames[0] !== undefined; else carouselDefault">
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="../../../assets/assassinscreed-wallpaper.jpg"
-          class="d-block w-80"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h2>First slide label</h2>
-        </div>
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="prev"
+<p-carousel
+  *ngIf="listGames.length > 0; else caroulselDefault"
+  [value]="listGames"
+  [numVisible]="1"
+  [numScroll]="1"
+  [responsiveOptions]="responsiveOptions"
+  [circular]="true"
+>
+  <ng-template
+    class="iframe"
+    pTemplate="imagesAndVideos"
+    *ngFor="let game of listGames"
+  >
+    <iframe
+      style="margin: 0 auto"
+      width="100%"
+      height="480px"
+      src="https://p4.wallpaperbetter.com/wallpaper/331/75/711/computer-game-gamer-games-wallpaper-preview.jpg"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+      allowfullscreen
     >
-      <div class="box-control">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="red"
-          class="bi bi-chevron-left"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-          />
-        </svg>
-      </div>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="next"
-    >
-      <div class="box-control">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="currentColor"
-          class="bi bi-chevron-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-          />
-        </svg>
-      </div>
-    </button>
-  </div>
-</div>
+    </iframe>
+  </ng-template>
+</p-carousel>
 
-<ng-template #carouselDefault>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="../../../assets/assassinscreed-wallpaper.jpg"
-          class="d-block w-80"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h2>Assassin's Creed</h2>
-        </div>
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="prev"
-    >
-      <div class="box-control">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="red"
-          class="bi bi-chevron-left"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-          />
-        </svg>
-      </div>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="next"
-    >
-      <div class="box-control">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="currentColor"
-          class="bi bi-chevron-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-          />
-        </svg>
-      </div>
-    </button>
-  </div>
+<ng-template #caroulselDefault>
+  <p-carousel
+    [value]="[1, 2, 3, 4]"
+    [numVisible]="1"
+    [numScroll]="1"
+    [responsiveOptions]="responsiveOptions"
+    [circular]="true"
+  >
+    <ng-template class="iframe" pTemplate="imagesAndVideos">
+      <iframe
+        style="margin: 0 auto"
+        width="100%"
+        height="480px"
+        src="https://pressworks.com.br/wp-content/uploads/2019/01/logo-em-alta_2018121794129-1.jpg"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+        allowfullscreen
+      >
+      </iframe>
+    </ng-template>
+  </p-carousel>
 </ng-template>

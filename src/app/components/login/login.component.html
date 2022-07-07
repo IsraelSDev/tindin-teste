@@ -1,21 +1,33 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <div class="col-md-3 form-container d-flex flex-column">
-        <h2>SIGN IN</h2>
-        <p>Insert your Account Information</p>
-        <input type="text" placeholder="Username or Email" />
-        <input type="password" placeholder="Password" />
-        <button>Login your Account</button>
-        <p>
-          No Account?
-          <span
-            ><a href="mailto:fabio@tindin.com.br"
-              >Send email fabio@tindin.com.br</a
-            ></span
-          >
-        </p>
-      </div>
+      <form>
+        <div class="col-md-3 form-container d-flex flex-column">
+          <h2>SIGN IN</h2>
+          <p>Insert your Account Information</p>
+          <input
+            type="text"
+            placeholder="Username or Email"
+            (change)="getEmail($event)"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            (change)="getPassword($event)"
+          />
+          <button  (click)="loginUser($event)">
+            Login your Account
+          </button>
+          <p>
+            No Account?
+            <span
+              ><a href="mailto:fabio@tindin.com.br"
+                >Send email fabio@tindin.com.br</a
+              ></span
+            >
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 </div>

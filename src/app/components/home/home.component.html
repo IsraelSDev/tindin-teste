@@ -1,4 +1,4 @@
-<app-carousel></app-carousel>
+<app-carousel *ngIf="isLoged == false; else loged"></app-carousel>
 <div class="container-fluid" *ngIf="listGames[0] !== undefined">
   <div class="row">
     <div
@@ -37,4 +37,8 @@
     src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj"
     alt="Imagem do jogo"
   />
+</ng-template>
+
+<ng-template #loged>
+  <h1>Usuário Logado</h1>
 </ng-template>
