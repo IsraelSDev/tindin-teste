@@ -11,7 +11,8 @@ export class NewGameComponent implements OnInit {
   public genres: any;
 
 
-  constructor() {
+  constructor(
+  ) {
     this.plataforms = [
       { name: 'PS', code: 1, },
       { name: 'PS2', code: 2 },
