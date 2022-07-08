@@ -2,7 +2,7 @@
 <div class="container-fluid" *ngIf="listGames[0] !== undefined">
   <div class="row">
     <div
-      class="col-sm-3 d-flex justify-content-center"
+      class="col-sm-3 d-flex justify-content-center box-div"
       *ngFor="let game of listGames"
     >
       <a [routerLink]="['/details', game._id]">
