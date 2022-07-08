@@ -1,7 +1,7 @@
-import { Login } from './../../models/login.model';
+
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
-import { User } from 'src/app/models/user.model';
+
 
 @Component({
   selector: 'app-login',
@@ -13,34 +13,44 @@ export class LoginComponent implements OnInit {
 
   public login: string = "";
   public password: string = "";
-
+  public messageLogin: string = '';
+  public isLogado: boolean = false;
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    if (this.loginService.getUser()) {
+      this.isLogado = true;
+      window.location.href = "/home";
+    }
   }
 
   getEmail(e: Event): void {
     e.preventDefault();
-    this.login = (<HTMLInputElement>e.target).value;
-    console.log(this.login);
-
+    this.login = (<HTMLInputElement>e.target).value.trim();
   }
   getPassword(e: Event): void {
     e.preventDefault();
-    this.password = (<HTMLInputElement>e.target).value;
-    console.log(this.password);
+    this.password = (<HTMLInputElement>e.target).value.trim();
   }
 
   async loginUser(e: Event): Promise<void> {
     e.preventDefault();
     const login = await this.loginService.getLogin(this.login, this.password).then(response => {
-      this.loginService.authUser(response);
-    })
-
+      if (typeof (response) == "object") {
+        this.messageLogin = 'Login realizado com sucesso!';
+        this.isLogado = true;
+        this.loginService.authUser(response)
+        setInterval(() => {
+          this.messageLogin = "Redirecionando...";
+          console.log(this.messageLogin);
+        }, 1000)
+        setTimeout(() => {
+          window.location.href = "/home";
+        }, 3000)
+      }
+      this.isLogado = false;
+      this.messageLogin = response.toString();
+    });
   }
-
-
-
-
 }

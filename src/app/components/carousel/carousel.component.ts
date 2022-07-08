@@ -45,7 +45,6 @@ export class CarouselComponent implements OnInit {
       console.log(this.listGames[0]);
       this.listOfGames.push(games);
       this.listGames = this.listOfGames[0].games;
-      console.log(this.listGames);
     }).catch(err => {
       console.log(err);
     });

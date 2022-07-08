@@ -13,7 +13,11 @@ export class LoginService {
 
   async getLogin(email: string, password: string): Promise<Login> {
     const url = `${API_URL.URL_LOGIN}`;
-    const response = await this.http.post(url, { password, email }).toPromise();
+    console.log("fez a request")
+    const response = await this.http.post(url, { password, email }).toPromise()
+      .catch(err => {
+        return err.error.message;
+      });
     return response as Login;
   }
 

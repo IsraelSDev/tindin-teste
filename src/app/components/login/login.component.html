@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!isLogado">
   <div class="row">
     <div class="col">
       <form>
@@ -6,18 +6,23 @@
           <h2>SIGN IN</h2>
           <p>Insert your Account Information</p>
           <input
-            type="text"
+            type="email"
+            required
             placeholder="Username or Email"
             (change)="getEmail($event)"
           />
           <input
             type="password"
+            required
             placeholder="Password"
             (change)="getPassword($event)"
           />
-          <button  (click)="loginUser($event)">
+          <button type="submit" (click)="loginUser($event)">
             Login your Account
           </button>
+          <p class="alert-login" *ngIf="messageLogin !== ''">
+            " *{{ messageLogin }}* "
+          </p>
           <p>
             No Account?
             <span
