@@ -24,11 +24,9 @@
       <p>{{ gameDetail.game.title }}</p>
     </div>
     <div class="row">
-      <div
-        class="col-sm-6"
-        *ngIf="imagesAndVideos.length >= 1; else defaultIframe"
-      >
+      <div class="col-sm-6 slide-component">
         <p-carousel
+          *ngIf="imagesAndVideos.length > 0; else defaultIframe"
           [value]="imagesAndVideos"
           [numVisible]="1"
           [numScroll]="1"
@@ -57,6 +55,14 @@
           </ng-template>
         </p-carousel>
       </div>
+      <ng-template #defaultIframe>
+        <img
+          src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj"
+          alt=""
+          style="width: 100%; max-width: 600px; max-height: 400px"
+        />
+      </ng-template>
+
       <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-2">
@@ -174,23 +180,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #defaultIframe>
-  <div class="col-sm-6">
-    <p-carousel
-      [value]="[1]"
-      [numVisible]="1"
-      [numScroll]="1"
-      [responsiveOptions]="responsiveOptions"
-      [circular]="true"
-    >
-      <ng-template class="iframe" pTemplate="imagesAndVideos">
-        <img
-          src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj | safe"
-          alt=""
-          style="width: 100%"
-        />
-      </ng-template>
-    </p-carousel>
-  </div>
-</ng-template>
