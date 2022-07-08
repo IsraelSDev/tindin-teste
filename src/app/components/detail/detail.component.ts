@@ -44,10 +44,11 @@ export class DetailComponent implements OnInit {
     this.gameService.getGameById(this.currentRoute).then(game => {
       this.gameDetail = game;
       this.imagesAndVideos = [...this.gameDetail.game.photos, ...this.gameDetail.game.videos];
-    }
-    ).catch(err => {
+      console.log(this.imagesAndVideos);
+    }).catch(err => {
       console.log(err);
     });
+
   }
 
 }

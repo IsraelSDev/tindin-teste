@@ -24,7 +24,10 @@
       <p>{{ gameDetail.game.title }}</p>
     </div>
     <div class="row">
-      <div class="col-sm-6">
+      <div
+        class="col-sm-6"
+        *ngIf="imagesAndVideos.length >= 1; else defaultIframe"
+      >
         <p-carousel
           [value]="imagesAndVideos"
           [numVisible]="1"
@@ -32,11 +35,17 @@
           [responsiveOptions]="responsiveOptions"
           [circular]="true"
         >
-          <ng-template class="iframe" pTemplate="imagesAndVideos">
-            <iframe style="margin: 0 auto;" width="100%" height="480px" src="https://cdn.akamai.steamstatic.com/steam/apps/495140/capsule_616x353.jpg?t=1580311764" frameborder="0" 
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen>
-            
-          </iframe>
+          <ng-template class="iframe-container" pTemplate="item" let-image>
+            <iframe
+              class="iframe"
+              width="100%"
+              height="480px"
+              [src]="image.url | safe"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+              allowfullscreen
+            >
+            </iframe>
           </ng-template>
         </p-carousel>
       </div>
@@ -157,3 +166,28 @@
     </div>
   </div>
 </div>
+
+<ng-template #defaultIframe>
+  <div class="col-sm-6">
+    <p-carousel
+      [value]="[1]"
+      [numVisible]="1"
+      [numScroll]="1"
+      [responsiveOptions]="responsiveOptions"
+      [circular]="true"
+    >
+      <ng-template class="iframe" pTemplate="imagesAndVideos">
+        <iframe
+          style="margin: 0 auto"
+          width="100%"
+          height="480px"
+          src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+          allowfullscreen
+        >
+        </iframe>
+      </ng-template>
+    </p-carousel>
+  </div>
+</ng-template>

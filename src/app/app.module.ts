@@ -22,6 +22,7 @@ import { NewGameComponent } from './components/new-game/new-game.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     CarouselComponent,
     LoginComponent,
     DetailComponent,
-    NewGameComponent
+    NewGameComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
