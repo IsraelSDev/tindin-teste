@@ -37,6 +37,7 @@
         >
           <ng-template class="iframe-container" pTemplate="item" let-image>
             <iframe
+              *ngIf="image.url.includes('youtube'); else imageTemplate"
               class="iframe"
               width="100%"
               height="480px"
@@ -46,6 +47,13 @@
               allowfullscreen
             >
             </iframe>
+            <ng-template #imageTemplate>
+              <img
+                [src]="image.url | safe"
+                alt=""
+                style="max-height: 500px; width: 100%"
+              />
+            </ng-template>
           </ng-template>
         </p-carousel>
       </div>
@@ -177,16 +185,11 @@
       [circular]="true"
     >
       <ng-template class="iframe" pTemplate="imagesAndVideos">
-        <iframe
-          style="margin: 0 auto"
-          width="100%"
-          height="480px"
-          src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-          allowfullscreen
-        >
-        </iframe>
+        <img
+          src="https://yt3.ggpht.com/ytc/AKedOLQ4PeDWAyYQTr-e3onekYiP4acmBxY0GAvWSvx6=s900-c-k-c0x00ffffff-no-rj | safe"
+          alt=""
+          style="width: 100%"
+        />
       </ng-template>
     </p-carousel>
   </div>

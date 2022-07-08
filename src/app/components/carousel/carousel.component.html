@@ -6,43 +6,25 @@
   [responsiveOptions]="responsiveOptions"
   [circular]="true"
 >
-  <ng-template
-    class="iframe"
-    pTemplate="imagesAndVideos"
-    *ngFor="let game of listGames"
-  >
-    <iframe
-      style="margin: 0 auto"
-      width="100%"
-      height="480px"
-      src="https://p4.wallpaperbetter.com/wallpaper/331/75/711/computer-game-gamer-games-wallpaper-preview.jpg"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-      allowfullscreen
-    >
-    </iframe>
+  <ng-template class="iframe" pTemplate="imagesAndVideos" let-image>
+    <img [src]="image.photos[0].url" alt="" />
   </ng-template>
 </p-carousel>
 
 <ng-template #caroulselDefault>
   <p-carousel
-    [value]="[1, 2, 3, 4]"
+    [value]="[1]"
     [numVisible]="1"
     [numScroll]="1"
     [responsiveOptions]="responsiveOptions"
     [circular]="true"
   >
     <ng-template class="iframe" pTemplate="imagesAndVideos">
-      <iframe
-        style="margin: 0 auto"
-        width="100%"
-        height="480px"
+      <img
         src="https://pressworks.com.br/wp-content/uploads/2019/01/logo-em-alta_2018121794129-1.jpg"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-        allowfullscreen
-      >
-      </iframe>
+        alt=""
+        style="width: 100%"
+      />
     </ng-template>
   </p-carousel>
 </ng-template>
