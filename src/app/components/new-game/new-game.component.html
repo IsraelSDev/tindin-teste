@@ -78,7 +78,6 @@
                               inputId="multiselect"
                               [options]="genres"
                               [filter]="true"
-                              optionLabel="name"
                               class="ng-invalid ng-dirty"
                               placeholder="Select platforms"
                               id="fil"
@@ -96,11 +95,10 @@
                               inputId="multiselect"
                               [options]="plataforms"
                               [filter]="true"
-                              optionLabel="name"
+                              name="platforms"
+                              [(ngModel)]="gamePlatforms"
                               class="ng-invalid ng-dirty"
                               placeholder="Select platforms"
-                              [(ngModel)]="gamePlatforms"
-                              name="platforms"
                               required
                             ></p-multiSelect>
                           </div>
