@@ -1,30 +1,49 @@
-<p-carousel
+<p-galleria
   *ngIf="listGames.length > 0; else caroulselDefault"
-  [value]="listGames"
   [numVisible]="1"
-  [numScroll]="1"
-  [responsiveOptions]="responsiveOptions"
   [circular]="true"
+  [value]="listGames"
+  [responsiveOptions]="responsiveOptions"
+  [showItemNavigators]="true"
+  [showThumbnails]="false"
+  [showIndicators]="true"
 >
-  <ng-template class="iframe" pTemplate="imagesAndVideos" let-image>
-    <img [src]="image.photos[0].url" alt="" />
+  <ng-template pTemplate="item" let-image>
+    <img [src]="image.photos[0].url" style="width: 100%; display: block" />
   </ng-template>
-</p-carousel>
+  <ng-template pTemplate="thumbnail" let-image>
+    <div class="grid grid-nogutter justify-content-center">
+      <img [src]="image.photos[0].url" style="display: block" />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="caption" let-image>
+    <h4 style="padding-bottom: 2rem; color: #ffffff; text-align: center;">{{ image.title }}</h4>
+  </ng-template>
+</p-galleria>
 
 <ng-template #caroulselDefault>
-  <p-carousel
-    [value]="[1]"
+  <p-galleria
     [numVisible]="1"
-    [numScroll]="1"
-    [responsiveOptions]="responsiveOptions"
     [circular]="true"
+    [value]="listGames"
+    [responsiveOptions]="responsiveOptions"
+    [showItemNavigators]="true"
+    [showThumbnails]="false"
+    [showIndicators]="true"
   >
-    <ng-template class="iframe" pTemplate="imagesAndVideos">
+    <ng-template pTemplate="item" let-image>
       <img
         src="../../../assets/watchdogs-wallpaper.jpg"
-        alt=""
-        style="width: 100%"
+        style="width: 100%; display: block"
       />
     </ng-template>
-  </p-carousel>
+    <ng-template pTemplate="thumbnail" let-image>
+      <div class="grid grid-nogutter justify-content-center">
+        <img
+          src="../../../assets/watchdogs-wallpaper.jpg"
+          style="display: block"
+        />
+      </div>
+    </ng-template>
+  </p-galleria>
 </ng-template>

@@ -18,8 +18,8 @@ export class NewGameComponent implements OnInit {
 
   public gameTitle: string = '';
   public gameDescription: string = '';
-  public mediumPrice: number = 0;
-  public gameReleaseYear: number = 0;
+  public mediumPrice: any = null;
+  public gameReleaseYear: any = null;
   public gameGenres: [] = [];
   public gamePlatforms: [] = [];
   public gameTags: [] = [];

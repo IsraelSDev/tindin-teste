@@ -19,18 +19,46 @@ html, body
 .p-carousel-next,
 .p-carousel-prev
   background-color: white !important
+  border-radius: 0 !important
   span
     color: var(--color-red)
     font-size: 1.5rem
     font-weight: bold
     padding: 10px
-    border-radius: 0 !important
     border: 1px solid var(--color-red)
     &:hover
       background-color: var(--color-red)
       color: white
       transition: 0.3s
-
+.p-galleria .p-galleria-caption
+  background-color: #1b1919c4 !important
+.p-galleria .p-galleria-indicators .p-galleria-indicator.p-highlight button
+  background-color: var(--color-red) !important
+  color: white
+  &:hover
+    background-color: white
+    color: var(--color-red)
+    transition: 0.3s
+.p-galleria .p-galleria-indicators
+  padding: 0
+  margin: 4rem
+  margin-top: -2rem
+  z-index: 1
+.p-galleria .p-galleria-item-nav
+  background: white !important
+  border-radius: 3px
+  border: 3px solid red
+  margin: 0 10% !important
+.pi-chevron-right:before,
+.pi-chevron-left:before
+  color: var(--color-red)
+  font-size: 1.5rem
+  font-weight: bold
+  padding: 10px
+  &:hover
+    background-color: var(--color-red)
+    color: white
+    transition: 0.3s
 /* LIBRARY CSS NG COMPONENTS*/
 
 .p-multiselect-item, .p-inputtext, .p-chips-multiple-container  .p-component, .p-multiselect-label, .p-multiselect-items-wrapper, .p-multiselect-panel, .p-multiselect-items, .p-multiselect-item, .p-highligh
