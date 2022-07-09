@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ChipsModule } from 'primeng/chips';
 import { InputMaskModule } from 'primeng/inputmask';
+import { TreeSelectModule } from 'primeng/treeselect';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +51,8 @@ import { SafePipe } from './safe.pipe';
     MultiSelectModule,
     InputNumberModule,
     ChipsModule,
-    InputMaskModule
+    InputMaskModule,
+    TreeSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

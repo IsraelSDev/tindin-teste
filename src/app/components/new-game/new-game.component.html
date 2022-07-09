@@ -23,6 +23,7 @@
         </a>
         <span>|</span>
         <p>New Game Name</p>
+        <pre>{{ newGameForm.value | json }}</pre>
       </div>
       <div class="row cad-section">
         <div class="col-sm-6">
@@ -48,7 +49,7 @@
         </div>
         <div class="col-sm-6">
           <div class="form">
-            <form>
+            <form #newGameForm="ngForm" novalidate (ngSubmit)="getForm()">
               <div class="form-group">
                 <div class="line1">
                   <p>7,5/10</p>
@@ -58,18 +59,14 @@
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter the game name"
+                    [(ngModel)]="gameTitle"
+                    name="title"
+                    required
                   />
                 </div>
-                <div class="line2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter resume game here"
-                  />
-                  <hr />
-                </div>
+
+                <hr />
+
                 <div class="row">
                   <div class="col-sm-12 list-input">
                     <ul>
@@ -85,6 +82,8 @@
                               class="ng-invalid ng-dirty"
                               placeholder="Select platforms"
                               id="fil"
+                              [(ngModel)]="gameGenres"
+                              name="genres"
                             ></p-multiSelect>
                           </div>
                         </div>
@@ -100,6 +99,9 @@
                               optionLabel="name"
                               class="ng-invalid ng-dirty"
                               placeholder="Select platforms"
+                              [(ngModel)]="gamePlatforms"
+                              name="platforms"
+                              required
                             ></p-multiSelect>
                           </div>
                         </div>
@@ -112,6 +114,8 @@
                               inputId="chips"
                               class="ng-invalid ng-dirty"
                               placeholder="Select tags"
+                              [(ngModel)]="gameTags"
+                              name="tags"
                             ></p-chips>
                           </div>
                         </div>
@@ -125,6 +129,8 @@
                               currency="BRL"
                               locale="pt-BR"
                               placeholder="Medium price"
+                              [(ngModel)]="mediumPrice"
+                              name="price"
                             ></p-inputNumber>
                           </div>
                         </div>
@@ -138,6 +144,8 @@
                               mask="9999"
                               class="ng-invalid ng-dirty"
                               placeholder="Enter release year"
+                              [(ngModel)]="gameReleaseYear"
+                              name="releaseYear"
                             ></p-inputMask>
                           </div>
                         </div>
@@ -153,11 +161,20 @@
                               pInputTextarea
                               class="ng-invalid ng-dirty"
                               placeholder="Enter description game"
+                              [(ngModel)]="gameDescription"
+                              name="description"
                             ></textarea>
                           </div>
                         </div>
                       </li>
                     </ul>
+                  </div>
+                </div>
+                <div class="col-sm-12 d-flex btn-section">
+                  <div class="col-sm-6"></div>
+                  <div class="col-sm-6 d-flex">
+                    <button class="btn-one">CANCEL</button>
+                    <input class="btn-two" value="SAVE GAME" type="submit" />
                   </div>
                 </div>
               </div>
@@ -167,13 +184,5 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12 d-flex btn-section">
-      <div class="col-sm-6"></div>
-      <div class="col-sm-6">
-        <button class="btn-one">CANCEL</button>
-        <button class="btn-two">SAVE GAME</button>
-      </div>
-    </div>
-  </div>
+  <div class="row"></div>
 </div>
