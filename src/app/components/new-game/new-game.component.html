@@ -22,34 +22,51 @@
           </svg>
         </a>
         <span>|</span>
-        <p>New Game Name</p>
+        <p>{{ newGameForm.value.title }}</p>
         <pre>{{ newGameForm.value | json }}</pre>
       </div>
-      <div class="row cad-section">
-        <div class="col-sm-6">
-          <p-carousel
-            [value]="[1, 2, 3, 4, 5]"
-            [numVisible]="1"
-            [numScroll]="1"
-            [responsiveOptions]="responsiveOptions"
-            [circular]="true"
-          >
-            <ng-template class="iframe" pTemplate="imagesAndVideos">
-              <iframe
-                width="100%"
-                height="480px"
-                src="https://cdn.akamai.steamstatic.com/steam/apps/495140/capsule_616x353.jpg?t=1580311764"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-                allowfullscreen
-              >
-              </iframe>
-            </ng-template>
-          </p-carousel>
-        </div>
-        <div class="col-sm-6">
-          <div class="form">
-            <form #newGameForm="ngForm" novalidate (ngSubmit)="getForm()">
+      <form #newGameForm="ngForm" novalidate (ngSubmit)="getForm()">
+        <div class="row cad-section">
+          <div class="col-lg-6">
+            <p-galleria
+              [value]="[1, 2, 3]"
+              [numVisible]="5"
+              [responsiveOptions]="responsiveOptions"
+              [circular]="true"
+              [containerStyle]="{ 'max-width': '90%', margin: '0 auto' }"
+              [showItemNavigators]="true"
+            >
+              <ng-template class="iframe-container" pTemplate="item" let-image>
+                <img
+                  src="../../../assets/tindin-bg-white.jpg"
+                  alt=""
+                  style="width: 100%; max-width: 600px; max-height: 400px"
+                />
+              </ng-template>
+              <ng-template pTemplate="thumbnail" let-image>
+                <div class="grid grid-nogutter justify-content-center">
+                  <img
+                    src="../../../assets/tindin-bg-white.jpg"
+                    alt=""
+                    style="width: 100%; max-width: 200px; max-height: 100px"
+                  />
+                </div>
+              </ng-template>
+            </p-galleria>
+
+            <label for="line2">Imagens: </label>
+            <div class="field col-12 md:col-4">
+              <p-chips
+                inputId="chips"
+                class="ng-invalid ng-dirty"
+                placeholder="Entre com as urls das imagens"
+                [(ngModel)]="gameImages"
+                name="photos"
+              ></p-chips>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form">
               <div class="form-group">
                 <div class="line1">
                   <p>7,5/10</p>
@@ -176,10 +193,10 @@
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <div class="row"></div>

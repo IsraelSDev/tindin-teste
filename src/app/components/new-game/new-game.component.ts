@@ -20,6 +20,7 @@ export class NewGameComponent implements OnInit {
   public gameDescription: string = '';
   public mediumPrice: any = null;
   public gameReleaseYear: any = null;
+  public gameImages: any = [];
   public gameGenres: [] = [];
   public gamePlatforms: [] = [];
   public gameTags: [] = [];
@@ -90,7 +91,6 @@ export class NewGameComponent implements OnInit {
         numScroll: 1
       }
     ];
-
   }
 
   ngOnInit(): void {
@@ -106,7 +106,8 @@ export class NewGameComponent implements OnInit {
       this.gameReleaseYear,
       this.gameGenres,
       this.gamePlatforms,
-      this.gameTags
+      this.gameTags,
+      this.gameImages
     );
     console.log(this.form.value);
     this.postGameService.postGame(game).subscribe(res => {
