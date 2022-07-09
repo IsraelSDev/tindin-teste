@@ -23,7 +23,7 @@
         </a>
         <span>|</span>
         <p>{{ newGameForm.value.title }}</p>
-        <pre>{{ newGameForm.value | json }}</pre>
+        <!-- <pre>{{ newGameForm.value | json }}</pre> -->
       </div>
       <form #newGameForm="ngForm" novalidate (ngSubmit)="getForm()">
         <div class="row cad-section">
@@ -53,17 +53,6 @@
                 </div>
               </ng-template>
             </p-galleria>
-
-            <label for="line2">Imagens: </label>
-            <div class="field col-12 md:col-4">
-              <p-chips
-                inputId="chips"
-                class="ng-invalid ng-dirty"
-                placeholder="Entre com as urls das imagens"
-                [(ngModel)]="gameImages"
-                name="photos"
-              ></p-chips>
-            </div>
           </div>
           <div class="col-lg-6">
             <div class="form">

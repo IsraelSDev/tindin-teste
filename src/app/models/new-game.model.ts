@@ -7,7 +7,7 @@ export class NewGame {
     public genres: any[],
     public platforms: any[],
     public tags: any[],
-    public photos: [{ url: string }]
+    public photos: []
   ) {
   }
 }

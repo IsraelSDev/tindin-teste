@@ -2,7 +2,6 @@ import { NewGame } from './../../models/new-game.model';
 import { PostGameService } from './../../services/post-game.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GamesService } from './../../services/games.service';
-import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-new-game',
   templateUrl: './new-game.component.html',
@@ -16,6 +15,7 @@ export class NewGameComponent implements OnInit {
   public responsiveOptions: any;
   @ViewChild('newGameForm') public form: any;
 
+  public arrayOfPhotos: [] = [];
   public gameTitle: string = '';
   public gameDescription: string = '';
   public mediumPrice: any = null;
@@ -26,11 +26,8 @@ export class NewGameComponent implements OnInit {
   public gameTags: [] = [];
 
 
-
-
   constructor(
-    private postGameService: PostGameService,
-    private newGameService: GamesService
+    private postGameService: PostGameService
   ) {
     this.plataforms = [
       'PS',
@@ -91,6 +88,8 @@ export class NewGameComponent implements OnInit {
         numScroll: 1
       }
     ];
+
+
   }
 
   ngOnInit(): void {
@@ -99,6 +98,10 @@ export class NewGameComponent implements OnInit {
 
 
   getForm(): void {
+
+    
+
+
     let game = new NewGame(
       this.gameTitle,
       this.gameDescription,
