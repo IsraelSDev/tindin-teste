@@ -24,14 +24,15 @@
       <p>{{ gameDetail.game.title }}</p>
     </div>
     <div class="row">
-      <div class="col-sm-6 slide-component">
-        <p-carousel
+      <div class="col-xl-6 slide-component">
+        <p-galleria
           *ngIf="imagesAndVideos.length > 0; else defaultIframe"
           [value]="imagesAndVideos"
-          [numVisible]="1"
-          [numScroll]="1"
+          [numVisible]="5"
           [responsiveOptions]="responsiveOptions"
           [circular]="true"
+          [containerStyle]="{ 'max-width': '90%', 'margin' : '0 auto'}"
+          [showItemNavigators]="true"
         >
           <ng-template class="iframe-container" pTemplate="item" let-image>
             <iframe
@@ -49,11 +50,26 @@
               <img
                 [src]="image.url | safe"
                 alt=""
-                style="max-height: 500px; width: 100%"
+                style="height: 400px; width: 100%"
               />
             </ng-template>
           </ng-template>
-        </p-carousel>
+          <ng-template pTemplate="thumbnail" let-image>
+            <div class="grid grid-nogutter justify-content-center">
+              <img
+                *ngIf="image.url.indexOf('youtube') === -1; else ytthumb"
+                [src]="image.url | safe"
+                style="display: block; height: 80px; width: 100%"
+              />
+              <ng-template #ytthumb>
+                <img
+                  src="../../../assets/youtube_thumbnails.jpg"
+                  style="display: block; height: 80px; width: 100%"
+                />
+              </ng-template>
+            </div>
+          </ng-template>
+        </p-galleria>
       </div>
       <ng-template #defaultIframe>
         <img
@@ -63,7 +79,7 @@
         />
       </ng-template>
 
-      <div class="col-sm-6">
+      <div class="col-xl-6">
         <div class="row">
           <div class="col-sm-2">
             <div class="note">
