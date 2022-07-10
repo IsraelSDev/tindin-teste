@@ -23,5 +23,10 @@ export class HeaderComponent implements OnInit {
 
     }
   }
+  logout(): void {
+    alert("Você deslogou com sucesso!")
+    this.loginService.logout();
+    this.router = 'login';
+  }
 
 }

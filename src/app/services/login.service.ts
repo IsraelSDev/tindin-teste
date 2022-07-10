@@ -8,6 +8,7 @@ import { API_URL } from "../utils/api.url";
 @Injectable()
 export class LoginService {
 
+  public isLoged: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -24,11 +25,14 @@ export class LoginService {
   authUser(user: any): Observable<User> {
     localStorage.setItem("id", user.user._id);
     localStorage.setItem("token", user.token);
+
     const us = new Observable<User>(
       subscriber => {
         subscriber.next(new User(user.user._id, user.token));
+        this.isLoged = true;
       }
     );
+
     return us;
   }
 
@@ -40,5 +44,12 @@ export class LoginService {
       return new User(id, token);
     }
     return null;
+  }
+
+  logout(): void {
+    localStorage.removeItem("id");
+    localStorage.removeItem("token");
+    this.isLoged ?? false;
+    window.location.reload();
   }
 }
