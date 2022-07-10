@@ -41,14 +41,16 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.gameService.getGameById(this.currentRoute).then(game => {
-      this.gameDetail = game;
-      this.imagesAndVideos = [...this.gameDetail.game.photos, ...this.gameDetail.game.videos];
-      console.log(this.imagesAndVideos);
-    }).catch(err => {
-      console.log(err);
-    });
 
+    this.route.params.subscribe(
+      (params: any) => {
+        this.gameService.getGameById(params.id).then(game => {
+          this.gameDetail = game;
+          this.imagesAndVideos = [...this.gameDetail.game.photos, ...this.gameDetail.game.videos];
+          console.log(this.imagesAndVideos);
+        }).catch(err => {
+          console.log(err);
+        });
+      });
   }
-
 }

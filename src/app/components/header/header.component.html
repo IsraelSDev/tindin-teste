@@ -8,10 +8,18 @@
     </div>
     <div class="col-sm-4">
       <div *ngIf="!isLoged" class="search">
-        <input type="text" placeholder="Search Game Here" /><button>
-          SEARCH
-        </button>
+        <input
+          type="text"
+          placeholder="Search Game Here"
+          #inputElement
+          (keyup)="search(inputElement.value)"
+        /><button>SEARCH</button>
       </div>
+      <ul class="list-group" style="position: absolute; z-index: 3">
+        <li class="list-group-item" *ngFor="let game of listGames">
+          <a (click)="clear()" [routerLink]="['/details', game._id]">{{ game.title }}</a>
+        </li>
+      </ul>
     </div>
     <div class="col-sm-4" *ngIf="!isLoged; else logoutIcon">
       <a [routerLink]="['/' + router]">

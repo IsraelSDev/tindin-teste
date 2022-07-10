@@ -39,7 +39,6 @@ export class LoginService {
   getUser(): any {
     const id = localStorage.getItem("id")?.toString();
     const token = localStorage.getItem("token")?.toString();
-
     if (id && token) {
       return new User(id, token);
     }
