@@ -33,10 +33,7 @@
 </div>
 
 <ng-template #defaultImage>
-  <img
-    src="../../../assets/tindin-bg-white.jpg"
-    alt="Imagem do jogo"
-  />
+  <img src="../../../assets/tindin-bg-white.jpg" alt="Imagem do jogo" />
 </ng-template>
 
 <ng-template #loged>
@@ -48,7 +45,23 @@
           <h6>Games manager portal</h6>
         </div>
         <div class="col-sm-5 search">
-          <input type="text" placeholder="Search from..." />
+          <input
+            type="text"
+            placeholder="Search from..."
+            #inputElement
+            (keyup)="search(inputElement.value)"
+          />
+          <ul class="list-group" style="position: absolute; z-index: 3">
+            <li
+              class="list-group-item"
+              *ngFor="let game of listGamesFiltered"
+              style="background-color: #2e2e2e"
+            >
+              <a (click)="clear()" [routerLink]="['/details', game._id]">{{
+                game.title
+              }}</a>
+            </li>
+          </ul>
           <button routerLink="/new-game">NEW GAME</button>
         </div>
       </div>

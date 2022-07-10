@@ -55,7 +55,6 @@ export class HeaderComponent implements OnInit {
         this.listOfGames = [];
         this.listOfGames.push(games);
         this.listGames = this.listOfGames[0].games;
-        console.log(this.listGames);
       }
     )
 
