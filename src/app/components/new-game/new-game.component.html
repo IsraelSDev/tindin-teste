@@ -67,6 +67,7 @@
                     placeholder="Enter the game name"
                     [(ngModel)]="gameTitle"
                     name="title"
+                    style="color: white"
                     required
                   />
                 </div>
@@ -135,6 +136,7 @@
                               placeholder="Medium price"
                               [(ngModel)]="mediumPrice"
                               name="price"
+                              style="color: white"
                             ></p-inputNumber>
                           </div>
                         </div>
@@ -167,6 +169,7 @@
                               placeholder="Enter description game"
                               [(ngModel)]="gameDescription"
                               name="description"
+                              style="color: white"
                             ></textarea>
                           </div>
                         </div>
@@ -177,7 +180,9 @@
                 <div class="col-sm-12 d-flex btn-section">
                   <div class="col-sm-6"></div>
                   <div class="col-sm-6 d-flex">
-                    <button class="btn-one">CANCEL</button>
+                    <button class="btn-one" 
+                    (click)="clearForm()"
+                    >CANCEL</button>
                     <input class="btn-two" value="SAVE GAME" type="submit" />
                   </div>
                 </div>

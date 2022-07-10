@@ -14,7 +14,7 @@ export class LoginService {
 
   async getLogin(email: string, password: string): Promise<Login> {
     const url = `${API_URL.URL_LOGIN}`;
-    console.log("fez a request")
+    alert("Autenticando usuário...");
     const response = await this.http.post(url, { password, email }).toPromise()
       .catch(err => {
         return err.error.message;

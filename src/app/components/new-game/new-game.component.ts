@@ -1,12 +1,14 @@
+import { LoginService } from 'src/app/services/login.service';
 import { NewGame } from './../../models/new-game.model';
 import { PostGameService } from './../../services/post-game.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GamesService } from './../../services/games.service';
+
 @Component({
   selector: 'app-new-game',
   templateUrl: './new-game.component.html',
   styleUrls: ['./new-game.component.sass'],
-  providers: [PostGameService, GamesService]
+  providers: [PostGameService, GamesService, LoginService]
 })
 export class NewGameComponent implements OnInit {
 
@@ -27,7 +29,8 @@ export class NewGameComponent implements OnInit {
 
 
   constructor(
-    private postGameService: PostGameService
+    private postGameService: PostGameService,
+    private loginService: LoginService
   ) {
     this.plataforms = [
       'PS',
@@ -89,19 +92,19 @@ export class NewGameComponent implements OnInit {
       }
     ];
 
-
+    this.loginService.getUser().subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
   ngOnInit(): void {
+
+
 
   }
 
 
   getForm(): void {
-
-    
-
-
     let game = new NewGame(
       this.gameTitle,
       this.gameDescription,
@@ -112,13 +115,16 @@ export class NewGameComponent implements OnInit {
       this.gameTags,
       this.gameImages
     );
-    console.log(this.form.value);
     this.postGameService.postGame(game).subscribe(res => {
-      console.log(res);
+      alert('Game publicado com sucesso!');
+      this.clearForm();
     }
       , err => {
         console.log(err);
       }
     );
+  }
+  clearForm(): void {
+    this.form.reset();
   }
 }
