@@ -38,19 +38,16 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     const login = await this.loginService.getLogin(this.login, this.password).then(response => {
       if (typeof (response) == "object") {
-        this.messageLogin = 'Login realizado com sucesso!';
+        alert("Login realizado com sucesso!");
         this.isLogado = true;
         this.loginService.authUser(response)
-        setInterval(() => {
-          this.messageLogin = "Redirecionando...";
-          console.log(this.messageLogin);
-        }, 1000)
-        setTimeout(() => {
-          window.location.href = "/home";
-        }, 3000)
+        window.location.href = "/home";
+        this.messageLogin = "Redirecionando...";
       }
-      this.isLogado = false;
       this.messageLogin = response.toString();
+    }).catch(error => {
+      this.isLogado = false;
+      this.messageLogin = error.toString();
     });
   }
 }
