@@ -30,10 +30,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
     if (this.loginService.getUser()) {
       this.isLoged = true;
-      console.log(this.isLoged);
-    } else {
-      console.log(this.isLoged);
-    }
+    } 
 
     this.gamesService.getGames().then(games => {
       this.listOfGames.push(games);
@@ -49,7 +46,6 @@ export class HomeComponent implements OnInit, OnChanges {
         if (value.trim() === '') {
           return of<Games[]>([]);
         }
-        console.log("chamando... " + value);
         return this.gamesService.getGameByName(value)
       }),
       catchError((err: any) => {
@@ -62,7 +58,6 @@ export class HomeComponent implements OnInit, OnChanges {
         this.listOfGamesFiltered = [];
         this.listOfGamesFiltered.push(games);
         this.listGamesFiltered = this.listOfGamesFiltered[0].games;
-        console.log(this.listGamesFiltered);
       }
     )
   }

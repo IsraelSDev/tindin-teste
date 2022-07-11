@@ -43,7 +43,6 @@ export class HeaderComponent implements OnInit {
         if (value.trim() === '') {
           return of<Games[]>([]);
         }
-        console.log("chamando... " + value);
         return this.gamesService.getGameByName(value)
       }),
       catchError((err: any) => {

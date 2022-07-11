@@ -42,7 +42,6 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.gamesService.getGamesHighLight().then(games => {
-      console.log(this.listGames[0]);
       this.listOfGames.push(games);
       this.listGames = this.listOfGames[0].games;
     }).catch(err => {

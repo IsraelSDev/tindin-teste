@@ -71,7 +71,6 @@ export class DetailComponent implements OnInit {
       this.messageDisplay = 'Voto enviado com Sucesso!!';
       this.gameDetail.game.totalVotes++;
       this.gameDetail.game.rating = res.ratingUpdated;
-      console.log(res);
       setTimeout(() => {
         this.display = false;
       }, 1000)
