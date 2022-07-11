@@ -35,4 +35,15 @@ export class GamesService {
     );
   }
 
+  voteGame(rate: any): Observable<any> {
+    const url = `${API_URL.URL_VOTE_GAME}`;
+    return this.http.post(url, JSON.stringify(rate), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).pipe(
+      map(response => response as any)
+    );
+  }
+
 }

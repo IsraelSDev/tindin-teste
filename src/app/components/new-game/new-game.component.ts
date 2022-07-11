@@ -26,11 +26,14 @@ export class NewGameComponent implements OnInit {
   public gameGenres: [] = [];
   public gamePlatforms: [] = [];
   public gameTags: [] = [];
+  public display: boolean = false;
+  public messageDisplay: string = '';
 
 
   constructor(
     private postGameService: PostGameService,
     private loginService: LoginService
+
   ) {
     this.plataforms = [
       'PS',
@@ -92,19 +95,15 @@ export class NewGameComponent implements OnInit {
       }
     ];
 
-    this.loginService.getUser().subscribe((res: any) => {
-      console.log(res);
-    });
   }
 
   ngOnInit(): void {
 
-
-
   }
 
-
   getForm(): void {
+    this.display = true;
+    this.messageDisplay = 'Enviando dados...';
     let game = new NewGame(
       this.gameTitle,
       this.gameDescription,
@@ -116,10 +115,13 @@ export class NewGameComponent implements OnInit {
       this.gameImages
     );
     this.postGameService.postGame(game).subscribe(res => {
-      alert('Game publicado com sucesso!');
+      this.display = true;
+      this.messageDisplay = 'Jogo enviado com Sucesso!!';
       this.clearForm();
     }
       , err => {
+        this.display = true;
+        this.messageDisplay = 'Ocorreu um erro ao enviar o jogo, tente novamente mais tarde!';
         console.log(err);
       }
     );

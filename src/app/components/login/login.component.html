@@ -36,3 +36,15 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="Login" [(visible)]="display">
+  Realizando Login... Por favor, aguarde...
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="display = false"
+      label="Sim"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public password: string = "";
   public messageLogin: string = '';
   public isLogado: boolean = false;
+  public display: boolean = false;
 
   constructor(private loginService: LoginService) { }
 
@@ -35,15 +36,16 @@ export class LoginComponent implements OnInit {
   }
 
   async loginUser(e: Event): Promise<void> {
+    this.display = true;
     e.preventDefault();
     const login = await this.loginService.getLogin(this.login, this.password).then(response => {
       if (typeof (response) == "object") {
-        alert("Login realizado com sucesso!");
         this.isLogado = true;
         this.loginService.authUser(response)
         window.location.href = "/home";
         this.messageLogin = "Redirecionando...";
       }
+      this.display = false;
       this.messageLogin = response.toString();
     }).catch(error => {
       this.isLogado = false;

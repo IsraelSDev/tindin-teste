@@ -10,7 +10,8 @@ import { ToastModule } from 'primeng/toast';
 import { ChipsModule } from 'primeng/chips';
 import { InputMaskModule } from 'primeng/inputmask';
 import { TreeSelectModule } from 'primeng/treeselect';
-
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DialogModule } from 'primeng/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,7 +23,6 @@ import { DetailComponent } from './components/detail/detail.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { InputNumberModule } from 'primeng/inputnumber';
 import { SafePipe } from './safe.pipe';
 
 @NgModule({
@@ -52,7 +52,9 @@ import { SafePipe } from './safe.pipe';
     InputNumberModule,
     ChipsModule,
     InputMaskModule,
-    TreeSelectModule
+    TreeSelectModule,
+    DialogModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]

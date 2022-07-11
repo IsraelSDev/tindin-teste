@@ -31,7 +31,7 @@
           [numVisible]="5"
           [responsiveOptions]="responsiveOptions"
           [circular]="true"
-          [containerStyle]="{ 'max-width': '90%', 'margin' : '0 auto'}"
+          [containerStyle]="{ 'max-width': '90%', margin: '0 auto' }"
           [showItemNavigators]="true"
         >
           <ng-template class="iframe-container" pTemplate="item" let-image>
@@ -86,6 +86,9 @@
               <h5>
                 {{
                   gameDetail.game.rating.toFixed(1).replace(".", ",") + "/10"
+                    ? gameDetail.game.rating.toFixed(1).replace(".", ",") +
+                      "/10"
+                    : "N/A"
                 }}
               </h5>
             </div>
@@ -168,7 +171,7 @@
           </div>
         </div>
         <div class="col-sm-12 btn-vote">
-          <button>VOTE NOW</button>
+          <button (click)="display = true">VOTE NOW</button>
           <hr
             class="line-vote-btn"
             style="
@@ -196,3 +199,16 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="Votação" [(visible)]="display">
+  {{ messageDisplay }}
+  <ng-template pTemplate="footer">
+    <p-inputNumber [(ngModel)]="nota" [min]="0" [max]="10"></p-inputNumber>
+    <p-button
+      icon="pi pi-check"
+      (click)="votar()"
+      label="Votar"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

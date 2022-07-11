@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   public searchSubject: Subject<string> = new Subject<string>();
   public listOfGames: Games[] = [];
   public listGames: Game[] = [];
+  public display: boolean = false;
 
 
 
@@ -61,7 +62,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    alert("Você deslogou com sucesso!")
     this.loginService.logout();
     this.router = 'login';
   }
@@ -73,4 +73,7 @@ export class HeaderComponent implements OnInit {
     this.searchSubject.next(' ');
   }
 
+  showDialog() {
+    this.display = true;
+  }
 }

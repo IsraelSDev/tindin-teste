@@ -6,4 +6,5 @@ export const API_URL = {
   URL_LOGIN: "https://api-labs.tindin.com.br/auth",
   URL_POST_GAME: "https://api-labs.tindin.com.br/games",
   URL_GET_GAME: "https://api-labs.tindin.com.br/games?title=",
+  URL_VOTE_GAME: "https://api-labs.tindin.com.br/games/rate",
 };

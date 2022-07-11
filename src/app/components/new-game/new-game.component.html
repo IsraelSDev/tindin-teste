@@ -180,10 +180,15 @@
                 <div class="col-sm-12 d-flex btn-section">
                   <div class="col-sm-6"></div>
                   <div class="col-sm-6 d-flex">
-                    <button class="btn-one" 
-                    (click)="clearForm()"
-                    >CANCEL</button>
-                    <input class="btn-two" value="SAVE GAME" type="submit" />
+                    <button class="btn-one" (click)="clearForm()">
+                      CANCEL
+                    </button>
+                    <input
+                      class="btn-two"
+                      value="SAVE GAME"
+                      type="submit"
+                      (click)="display = true"
+                    />
                   </div>
                 </div>
               </div>
@@ -195,3 +200,15 @@
   </div>
   <div class="row"></div>
 </div>
+
+<p-dialog header="Salvando o Jogo..." [(visible)]="display">
+  {{ messageDisplay }}
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="display = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

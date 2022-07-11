@@ -17,7 +17,9 @@
       </div>
       <ul class="list-group" style="position: absolute; z-index: 3">
         <li class="list-group-item" *ngFor="let game of listGames">
-          <a (click)="clear()" [routerLink]="['/details', game._id]">{{ game.title }}</a>
+          <a (click)="clear()" [routerLink]="['/details', game._id]">{{
+            game.title
+          }}</a>
         </li>
       </ul>
     </div>
@@ -44,7 +46,7 @@
 
 <ng-template #logoutIcon>
   <div class="col-sm-4">
-    <a (click)="logout()">
+    <a (click)="showDialog()">
       <div class="container justify-content-around">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,3 +65,15 @@
     </a>
   </div>
 </ng-template>
+
+<p-dialog header="Logout?" [(visible)]="display">
+  Tem certeza que deseja fazer Logout?
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="logout()"
+      label="Sim"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>
